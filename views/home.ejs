@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <title>Custom Umbrella</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e6f7ff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .umbrella {
+        width: 300px;
+        height: 300px;
+        background-image: url("C:\Users\ankur\OneDrive\Desktop\vs\umbrella\uploads\1726347105044.png");
+        background-size: cover;
+        background-position: center;
+      }
+      .content {
+        margin-left: 50px;
+      }
+      .content h1 {
+        font-size: 36px;
+        color: #333;
+        margin: 0;
+      }
+      .colors {
+        display: flex;
+        margin: 20px 0;
+      }
+      .color {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      
+      .color.blue {
+        background-color: #007bff;
+      }
+      .color.pink {
+        background-color: #ff69b4;
+      }
+      .color.yellow {
+        background-color: #ffd700;
+      }
+      .content p {
+        font-size: 16px;
+        color: #333;
+        margin: 0;
+      }
+      .content small {
+        display: block;
+        margin-top: 5px;
+        color: #7d7d7d;
+      }
+      .upload-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #00bfff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        text-decoration: none;
+      }
+      .upload-button i {
+        margin-right: 10px;
+      }
+      #image-upload {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="umbrella" id="umbrella"></div>
+      <div class="content">
+        <h1>Custom Umbrella</h1>
+        <div class="colors">
+         
+          <div class="color blue" data-color="blue"></div>
+       
+          <div class="color pink" data-color="pink"></div>
+         
+          <div class="color yellow" data-color="yellow"></div>
+         
+        </div>
+        <p>Customize your umbrella</p>
+        <small
+          >Upload a logo for an instant preview.<br />.png and .jpg files only.
+          Max file size is 5MB.</small
+        >
+        <div class="container mt-5">
+          <form id="image-upload-form" enctype="multipart/form-data" method="post">
+            <div class="mb-3">
+              <button class="upload-button" type="button">
+                <i class="fas fa-cloud-upload-alt"></i> Upload Image
+              </button>
+              <input
+                type="file"
+                name="upload[IMAGE]"
+                id="image-upload"
+                accept="image/*"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Trigger the file input when the button is clicked
+      document.querySelector('.upload-button').addEventListener('click', function() {
+        document.getElementById('image-upload').click();
+      });
+
+      // Handle the color change
+      document.querySelectorAll('.color').forEach(colorDiv => {
+        colorDiv.addEventListener('click', function() {
+          const selectedColor = this.getAttribute('data-color');
+          const umbrella = document.getElementById('umbrella');
+
+          // Reset background image, just changing the color
+          umbrella.style.backgroundImage = '';
+          umbrella.style.backgroundColor = selectedColor;
+        });
+      });
+
+      // Handle file upload and preview
+      document.getElementById('image-upload').addEventListener('change', function() {
+        const file = this.files[0];
+        const formData = new FormData();
+        formData.append('upload[IMAGE]', file);
+
+        fetch('/', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.imagePath) {
+            // Set the uploaded image as the background of the umbrella
+            const umbrella = document.getElementById('umbrella');
+            umbrella.style.backgroundImage = `url(${data.imagePath})`;
+            umbrella.style.backgroundSize = 'cover';
+            umbrella.style.backgroundPosition = 'center';
+          }
+        })
+        .catch(error => console.error('Error uploading image:', error));
+      });
+    </script>
+  </body>
+</html>
