@@ -9,7 +9,7 @@
 # ====================================================================
 
 # Path to your local Git repository
-REPO_PATH="C:\Users\ankur\Github\read-me"
+REPO_PATH="C:\Users\ankur\Github\Umbrella"
 
 # Array of commit messages
 commit_messages=(
