@@ -1,0 +1,2 @@
+# FILE27.TXT
+Integrated Google reCAPTCHA for better bot protection. - Updated on 2024-10-31
