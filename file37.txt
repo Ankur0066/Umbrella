@@ -1,0 +1,2 @@
+# FILE37.TXT
+Updated CI pipeline to run tests on every commit. - Updated on 2024-10-31
