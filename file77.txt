@@ -1,2 +1,0 @@
-# FILE77.TXT
-Fixed issue with JWT token expiration and refresh logic. - Updated on 2024-10-03

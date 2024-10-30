@@ -1,2 +1,0 @@
-# FILE21.TXT
-Updated React app to use functional components with hooks. - Updated on 2024-10-03

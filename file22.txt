@@ -1,2 +1,0 @@
-# FILE22.TXT
-Updated UI to support drag-and-drop file uploads. - Updated on 2024-10-03

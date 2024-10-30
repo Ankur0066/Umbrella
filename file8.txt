@@ -1,2 +1,0 @@
-# FILE8.TXT
-Migrated project to use MongoDB Atlas for database management. - Updated on 2024-10-03

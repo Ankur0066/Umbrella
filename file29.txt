@@ -1,2 +1,0 @@
-# FILE29.TXT
-Set up MongoDB aggregation pipeline for complex queries. - Updated on 2024-10-03

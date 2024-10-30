@@ -1,2 +1,0 @@
-# FILE10.TXT
-Added new feature for user authentication using JWT. - Updated on 2024-10-03

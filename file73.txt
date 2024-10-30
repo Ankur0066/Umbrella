@@ -1,2 +1,0 @@
-# FILE73.TXT
-Updated project to use TypeScript for better type safety. - Updated on 2024-10-03

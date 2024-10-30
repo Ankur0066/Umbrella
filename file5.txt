@@ -1,2 +1,0 @@
-# FILE5.TXT
-Integrated cloud storage with AWS S3 for file uploads. - Updated on 2024-10-03
