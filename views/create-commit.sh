@@ -140,8 +140,8 @@ modify_file() {
 
 # Function to generate a random date within a specific range
 generate_random_date() {
-    local start_date=$(date -d "2024-04-05" +%s)
-    local end_date=$(date -d "2024-04-11" +%s)
+    local start_date=$(date -d "2024-09-30" +%s)
+    local end_date=$(date -d "2024-10-11" +%s)
     local random_date=$(date -d @$((start_date + RANDOM % (end_date - start_date))) +"%Y-%m-%d")
     echo $random_date
 }
@@ -167,8 +167,8 @@ get_last_commit_number() {
 last_commit=$(get_last_commit_number)
 
 # Iterate over the date range and create random commits
-current_date="2024-09-17"
-end_date="2024-09-30"
+current_date="2024-09-30"
+end_date="2024-10-11"
 
 while [[ "$current_date" < "$end_date" ]]; do
     num_commits=$((RANDOM % 4 + 2))  # Random number between 2 and 5
